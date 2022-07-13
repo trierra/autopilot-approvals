@@ -11,7 +11,7 @@ allowVolumeExpansion: true
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pgbench
+  name: pgbench-3
   namespace: kube-system
   labels:
     app: postgres
