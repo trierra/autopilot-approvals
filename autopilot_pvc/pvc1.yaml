@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pgbench-1
+  namespace: kube-system
+  labels:
+    app: postgres
+spec:
+  storageClassName: postgres-pgbench-sc
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
