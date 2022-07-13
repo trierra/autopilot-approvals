@@ -1,0 +1,40 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: postgres-pgbench-sc
+  namespace: kube-system
+provisioner: kubernetes.io/portworx-volume
+parameters:
+  repl: "1"
+allowVolumeExpansion: true
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pgbench
+  namespace: kube-system
+  labels:
+    app: postgres
+spec:
+  storageClassName: postgres-pgbench-sc
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pgbench-1
+  namespace: kube-system
+  labels:
+    app: postgres
+spec:
+  storageClassName: postgres-pgbench-sc
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
