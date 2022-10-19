@@ -1,0 +1,40 @@
+apiVersion: autopilot.libopenstorage.org/v1alpha1
+kind: ActionApproval
+metadata:
+  creationTimestamp: null
+  finalizers:
+  - autopilot.libopenstorage.org/delete
+  labels:
+    object: pvc-e19f1f38-4d72-4a73-bbfe-dc0a5673be44
+    rule: volume-resize
+  managedFields:
+  - apiVersion: autopilot.libopenstorage.org/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:object: {}
+          f:rule: {}
+      f:spec:
+        .: {}
+        f:actions: {}
+        f:approvalState: {}
+      f:status: {}
+    manager: ___4go_build_main_go
+    operation: Update
+    time: "2022-10-19T23:45:49Z"
+  name: volume-resize-pvc-e19f1f38-4d72-4a73-bbfe-dc0a5673be44
+  namespace: kube-system
+spec:
+  actions:
+  - name: resize
+    params:
+      maxsize: 20Gi
+      scalepercentage: "150"
+  approvalState: approved
+status:
+  Rule:
+    Name: ""
+    Namespace: ""
+  lastProcessTimestamp: null
